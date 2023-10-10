@@ -26,16 +26,21 @@ def check_winner(arr):
 def ask_cell_number(arr):
     val = input('Välj en ruta: ')
     try:
+        if val == '11':
+            raise IndexError
         if arr[int(val[0]) - 1][int(val[1]) - 1] is not None:
             return int(val[0]) - 1, int(val[1]) - 1
     except IndexError:
         print(f'Fel val, ruta {val} finns inte i spelplanen, försök igen!')
         return ask_cell_number(arr)
+    except ValueError:
+        print('Du måste skriva in ett giltigt nummer!')
+        return ask_cell_number(arr)
 
 
 print('Välkommen till spelet Chomp. \n\nInstruktioner: I spelet kommer du utmanas om att välja ett blocknummer '
-          'från spelplanen. Det valda blocket och alla block under och till högre kommer att raderas. Spelet går ut '
-          'på att undvika välja P, den spelare som väljer P förlorar och den andra spelare vinner.')
+          'från spelplanen.\nDet valda blocket och alla block under och till högre kommer att raderas.\nSpelet går ut '
+          'på att undvika välja P, den spelare som väljer P förlorar och den andra spelare vinner.\n')
 
 is_player_one = False
 rows = int(input('Hur många rader ska chokladbaren bestå av: '))
@@ -51,6 +56,5 @@ while check_winner(bar) is not True:
     print('')
     print_chocolate_bar(bar)
     print('')
-    # print(bar)
 
 print(f'Spelet är slut, vinnare är spelare {"#1" if is_player_one else "#2"}!')

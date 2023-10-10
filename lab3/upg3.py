@@ -11,6 +11,7 @@ throws = 0
 
 while True:
     io = input('Genom att trycka på enter kan du börja kasta, om du vill avsluta spelet skriv A: ')
+    throws = 0
     if io.lower() == 'a':
         break
 
