@@ -1,2 +1,2 @@
-Vardagsrums TV,100,5,10,9
+Vardagsrums TV,100,8,10,9
 Köks TV,50,43,20,6
