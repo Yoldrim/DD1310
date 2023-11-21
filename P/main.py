@@ -2,8 +2,8 @@ import re
 
 from datetime import date
 
-from PackingItem import *
-from PackingList import *
+from PackingItem import PackingItem
+from PackingList import PackingList
 
 VALID_DATE_REGEX_PATTERN = r'^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$'
 FILE_PATH = './db.txt'
@@ -52,7 +52,7 @@ def get_valid_input(prompt, condition, error_message):
         if not condition(user_input):
             raise ValueError(error_message)
         return user_input
-    except Exception as e:
+    except ValueError as e:
         print(e)
         return get_valid_input(prompt, condition, error_message)
 
