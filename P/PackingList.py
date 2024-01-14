@@ -4,6 +4,7 @@ class PackingList:
         self.date = date
         self.items = []
 
+    # String representation of PackingList used when saving to file
     def to_db_string(self):
         arr = []
         for item in self.items:
